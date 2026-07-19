@@ -1,0 +1,25 @@
+# Python virtual environments
+env/
+venv/
+.env
+.venv/
+ENV/
+
+# Python compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Django database & static files
+db.sqlite3
+local_db.sqlite3
+staticfiles/
+
+# IDE configurations
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp

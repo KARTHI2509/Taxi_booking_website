@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CabGo - Driver Panel</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="glass-panel"></header>
+
+    <div id="loadingIndicator">
+        <div class="spinner"></div>
+        <p style="font-weight: 600; color: var(--primary);">Updating trip settings...</p>
+    </div>
+
+    <main class="container">
+        <!-- Statistics Grid -->
+        <div class="dashboard-grid">
+            <div class="glass-panel stat-card">
+                <div class="stat-info">
+                    <h4>Assigned Rides</h4>
+                    <p style="color: var(--secondary);">Active</p>
+                </div>
+                <div class="stat-icon" style="color: var(--secondary);"><i class="fa-solid fa-route"></i></div>
+            </div>
+
+            <div class="glass-panel stat-card" style="border-color: rgba(16, 185, 129, 0.2);">
+                <div class="stat-info">
+                    <h4>Completed Trips</h4>
+                    <p id="drvTotalTrips" style="color: var(--success);">0</p>
+                </div>
+                <div class="stat-icon" style="color: var(--success);"><i class="fa-solid fa-circle-check"></i></div>
+            </div>
+
+            <div class="glass-panel stat-card earnings" style="border-color: rgba(250, 204, 21, 0.2);">
+                <div class="stat-info">
+                    <h4>Total Earnings</h4>
+                    <p id="drvEarnings" style="color: var(--primary);">₹0</p>
+                </div>
+                <div class="stat-icon"><i class="fa-solid fa-indian-rupee-sign"></i></div>
+            </div>
+
+            <div class="glass-panel stat-card">
+                <div class="stat-info">
+                    <h4>Current Status</h4>
+                    <p id="drvCurrentStatus">Available</p>
+                </div>
+                <div class="stat-icon"><i class="fa-solid fa-signal"></i></div>
+            </div>
+        </div>
+
+        <div class="layout-split">
+            <!-- Left Side: Ride Assignments -->
+            <div class="glass-panel" style="padding: 2.5rem;">
+                <h3 class="panel-title"><i class="fa-solid fa-taxi"></i> Assigned Ride Requests</h3>
+                
+                <div class="table-wrapper" style="margin-top: 1.5rem;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Booking ID</th>
+                                <th>Customer</th>
+                                <th>Route</th>
+                                <th>Fare</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="assignedRidesList">
+                            <!-- Injected dynamically by script.js -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Right Side: Availability Toggler -->
+            <div class="glass-panel" style="padding: 2.5rem;">
+                <h3 class="panel-title"><i class="fa-solid fa-gear"></i> Operation Settings</h3>
+                
+                <div class="form-group" style="margin-top: 2rem;">
+                    <label class="form-label" for="driverStatusToggle">Set Availability State</label>
+                    <select id="driverStatusToggle" class="form-select">
+                        <option value="Available">Available (Ready to receive requests)</option>
+                        <option value="Busy">Busy (Currently on a trip)</option>
+                        <option value="Offline">Offline (Unavailable)</option>
+                    </select>
+                </div>
+
+                <div style="margin-top: 2rem; padding: 1.25rem; border-radius: 12px; background: rgba(255, 255, 255, 0.02); border: 1px solid var(--panel-border);">
+                    <h4><i class="fa-solid fa-circle-info"></i> Active Rides Info</h4>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem; line-height: 1.5;">When customers request vehicle classes matching yours, active rides appear in your list. Press 'Accept' to assign yourself, 'Start' to begin the journey, and 'Complete' when finished.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 CabGo. Developed following Django & Fetch API reference patterns.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

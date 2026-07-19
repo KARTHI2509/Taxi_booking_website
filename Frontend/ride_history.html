@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CabGo - Ride History</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="glass-panel"></header>
+
+    <div id="loadingIndicator">
+        <div class="spinner"></div>
+        <p style="font-weight: 600; color: var(--primary);">Fetching ride records...</p>
+    </div>
+
+    <main class="container">
+        <div class="glass-panel" style="padding: 2.5rem;">
+            <h2 class="panel-title"><i class="fa-solid fa-clock-rotate-left"></i> Ride & Booking History</h2>
+            
+            <div class="table-wrapper" style="margin-top: 1.5rem;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Booking ID</th>
+                            <th>Operator / Customer</th>
+                            <th>Route</th>
+                            <th>Date</th>
+                            <th>Fare</th>
+                            <th>Ride Status</th>
+                            <th>Payment Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="historyList">
+                        <!-- Filled dynamically by script.js -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 CabGo. Developed following Django & Fetch API reference patterns.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

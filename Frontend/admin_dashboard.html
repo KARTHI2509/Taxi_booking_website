@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CabGo - Admin Console</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="glass-panel"></header>
+
+    <div id="loadingIndicator">
+        <div class="spinner"></div>
+        <p style="font-weight: 600; color: var(--primary);">Updating database record...</p>
+    </div>
+
+    <!-- Admin Sub-Navigation Menu -->
+    <div style="background: rgba(11, 15, 25, 0.4); border-bottom: 1px solid var(--panel-border); padding: 0.5rem 5%;">
+        <div style="max-width: 1280px; margin: 0 auto; display: flex; gap: 1rem; flex-wrap: wrap;">
+            <button class="role-btn tab-link active" data-tab="customers" onclick="switchAdminTab('customers')"><i class="fa-solid fa-users"></i> Customers</button>
+            <button class="role-btn tab-link" data-tab="drivers" onclick="switchAdminTab('drivers')"><i class="fa-solid fa-user-gear"></i> Drivers</button>
+            <button class="role-btn tab-link" data-tab="vehicles" onclick="switchAdminTab('vehicles')"><i class="fa-solid fa-car"></i> Vehicles</button>
+            <button class="role-btn tab-link" data-tab="bookings" onclick="switchAdminTab('bookings')"><i class="fa-solid fa-calendar-check"></i> Bookings</button>
+            <button class="role-btn tab-link" data-tab="payments" onclick="switchAdminTab('payments')"><i class="fa-solid fa-indian-rupee-sign"></i> Payments</button>
+        </div>
+    </div>
+
+    <main class="container">
+        <!-- Search and Action header -->
+        <div class="glass-panel" style="padding: 2rem; margin-bottom: 2rem;">
+            <div class="list-header">
+                <div>
+                    <h2 id="adminPanelTitle" style="font-weight: 800; font-size: 1.8rem; color: var(--primary);">Customer Management</h2>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 0.25rem;">Perform create, read, update, and delete queries on target tables</p>
+                </div>
+                <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+                    <div class="search-box">
+                        <i class="fa-solid fa-magnifying-glass" style="color: var(--text-muted);"></i>
+                        <input type="text" id="adminSearchInput" placeholder="Search entries...">
+                    </div>
+                    <button class="btn-primary" onclick="openAddModal()"><i class="fa-solid fa-plus"></i> Add Entry</button>
+                </div>
+            </div>
+
+            <!-- CRUD Data Table -->
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr id="adminTableHeader">
+                            <!-- Injected dynamically by script.js -->
+                        </tr>
+                    </thead>
+                    <tbody id="adminTableBody">
+                        <!-- Injected dynamically by script.js -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal Form for Add/Edit CRUD Operations -->
+    <div id="adminModal" class="modal">
+        <div class="modal-content glass-panel">
+            <button type="button" class="modal-close">&times;</button>
+            <h3 id="modalTitle" style="font-size: 1.6rem; font-weight: 800; margin-bottom: 1.5rem; color: var(--primary);">Add Entry</h3>
+            
+            <form id="modalCrudForm">
+                <!-- Fields are generated dynamically by script.js based on active tab -->
+                <div id="modalFormFields"></div>
+                
+                <div style="display: flex; justify-content: flex-end; gap: 1rem; margin-top: 2rem; border-top: 1px solid var(--panel-border); padding-top: 1.5rem;">
+                    <button type="button" id="modalCancel" class="btn-secondary" style="padding: 0.6rem 1.5rem; font-size:0.95rem;">Cancel</button>
+                    <button type="submit" class="btn-primary" style="padding: 0.6rem 1.5rem; font-size:0.95rem;"><i class="fa-solid fa-circle-check"></i> Save Record</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 CabGo. Developed following Django & Fetch API reference patterns.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

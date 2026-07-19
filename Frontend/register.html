@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CabGo - Customer Registration</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="glass-panel"></header>
+
+    <div id="loadingIndicator">
+        <div class="spinner"></div>
+        <p style="font-weight: 600; color: var(--primary);">Registering account...</p>
+    </div>
+
+    <main class="container">
+        <div class="glass-panel form-container">
+            <h2 class="form-title">Customer Registration</h2>
+            <p class="form-subtitle">Create a free profile to start booking rides instantly</p>
+
+            <form id="registerForm">
+                <div class="form-group">
+                    <label class="form-label" for="regName">Full Name</label>
+                    <input type="text" id="regName" class="form-input" placeholder="e.g. Rahul Sharma" required autocomplete="name">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="regEmail">Email Address</label>
+                    <input type="email" id="regEmail" class="form-input" placeholder="e.g. rahul@gmail.com" required autocomplete="email">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="regPhone">Phone Number</label>
+                    <input type="tel" id="regPhone" class="form-input" placeholder="e.g. 9876543210" required autocomplete="tel">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="regAddress">Home/Office Address</label>
+                    <input type="text" id="regAddress" class="form-input" placeholder="e.g. Hyderabad" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="regPassword">Secure Password</label>
+                    <input type="password" id="regPassword" class="form-input" placeholder="Create a password" required autocomplete="new-password">
+                </div>
+
+                <button type="submit" class="btn-primary form-submit-btn"><i class="fa-solid fa-user-plus"></i> Register Profile</button>
+            </form>
+
+            <p class="form-footer">
+                Already have a profile? <a href="login.html">Sign in here</a>
+            </p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 CabGo. Developed following Django & Fetch API reference patterns.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

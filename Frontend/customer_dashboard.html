@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CabGo - Customer Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="glass-panel"></header>
+
+    <div id="loadingIndicator">
+        <div class="spinner"></div>
+        <p style="font-weight: 600; color: var(--primary);">Loading passenger stats...</p>
+    </div>
+
+    <main class="container">
+        <!-- Dashboard Statistics Row -->
+        <div class="dashboard-grid">
+            <div class="glass-panel stat-card">
+                <div class="stat-info">
+                    <h4>Total Rides</h4>
+                    <p id="custTotalRides">0</p>
+                </div>
+                <div class="stat-icon"><i class="fa-solid fa-taxi"></i></div>
+            </div>
+
+            <div class="glass-panel stat-card" style="border-color: rgba(16, 185, 129, 0.2);">
+                <div class="stat-info">
+                    <h4>Completed Trips</h4>
+                    <p id="custCompletedRides" style="color: var(--success);">0</p>
+                </div>
+                <div class="stat-icon" style="color: var(--success);"><i class="fa-solid fa-circle-check"></i></div>
+            </div>
+
+            <div class="glass-panel stat-card" style="border-color: rgba(56, 189, 248, 0.2);">
+                <div class="stat-info">
+                    <h4>Active / Scheduled</h4>
+                    <p id="custUpcomingRides" style="color: var(--secondary);">0</p>
+                </div>
+                <div class="stat-icon" style="color: var(--secondary);"><i class="fa-solid fa-route"></i></div>
+            </div>
+
+            <div class="glass-panel stat-card" style="background: linear-gradient(135deg, rgba(250,204,21,0.08) 0%, rgba(0,0,0,0) 100%);">
+                <div class="stat-info">
+                    <h4>Quick Links</h4>
+                    <a href="booking.html" class="nav-link" style="color: var(--primary); font-size: 1rem; font-weight:700;"><i class="fa-solid fa-circle-plus"></i> Book Cab</a>
+                </div>
+                <div class="stat-icon"><i class="fa-solid fa-angles-right"></i></div>
+            </div>
+        </div>
+
+        <div class="layout-split">
+            <!-- Left Side: Recent Transactions -->
+            <div class="glass-panel" style="padding: 2rem;">
+                <h3 class="panel-title"><i class="fa-solid fa-receipt"></i> Recent Payment Receipts</h3>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Receipt ID</th>
+                                <th>Booking ID</th>
+                                <th>Amount</th>
+                                <th>Method</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="custHistoryBody">
+                            <!-- Populated dynamically by script.js -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Right Side: Profile Details -->
+            <div class="glass-panel" style="padding: 2rem; display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                    <h3 class="panel-title"><i class="fa-solid fa-id-card"></i> Member Details</h3>
+                    <div style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 1rem;">
+                        <p><strong>Member Status:</strong> <span class="badge badge-completed"><i class="fa-solid fa-shield"></i> Verified Customer</span></p>
+                        <p><strong>Support Helpline:</strong> +1 (800) CAB-GO-HELP</p>
+                        <p><strong>Safe Ride PIN:</strong> <span style="font-family:monospace; background:rgba(255,255,255,0.06); padding:0.25rem 0.5rem; border-radius:4px; font-weight:bold; font-size:1.1rem; color:var(--primary);">8392</span></p>
+                    </div>
+                </div>
+                <div style="margin-top: 2rem; padding: 1.25rem; border-radius:12px; background:rgba(255,255,255,0.02); border:1px solid var(--panel-border);">
+                    <h4 style="color: var(--secondary);"><i class="fa-solid fa-circle-exclamation"></i> Emergency SOS</h4>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-top:0.25rem;">During active journeys, you can trigger our SOS alert button directly in the cab helper app.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 CabGo. Developed following Django & Fetch API reference patterns.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

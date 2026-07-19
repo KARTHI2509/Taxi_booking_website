@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CabGo - Premium Taxi Booking Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Header injected by script.js -->
+    <header class="glass-panel"></header>
+
+    <!-- Loading Indicator -->
+    <div id="loadingIndicator">
+        <div class="spinner"></div>
+        <p style="font-weight: 600; color: var(--primary);">Processing request...</p>
+    </div>
+
+    <!-- Main Container -->
+    <main class="container">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1>Rides at your <br><span>Finger Tips</span></h1>
+                <p>Experience the ultimate ride-hailing convenience with CabGo. Safe journeys, professional drivers, transparent fares, and luxurious vehicles, all with zero hassle.</p>
+                <div class="hero-buttons">
+                    <a href="booking.html" class="btn-primary"><i class="fa-solid fa-location-dot"></i> Book a Ride</a>
+                    <a href="drivers.html" class="btn-secondary"><i class="fa-solid fa-users"></i> Meet Our Drivers</a>
+                </div>
+            </div>
+            <div class="glass-panel" style="padding: 1.5rem; display: flex; flex-direction: column; justify-content: center; gap: 1.5rem; text-align: center; background: radial-gradient(circle at 10% 20%, rgba(250, 204, 21, 0.05) 0%, rgba(0, 0, 0, 0) 90%); overflow: hidden;">
+                <img src="assets/hero_cab.png" alt="CabGo Hero Cab" style="width: 100%; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.5); object-fit: cover; height: 220px; transition: transform 0.5s ease;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
+                <h2>Ride Smarter with CabGo</h2>
+                <p style="color: var(--text-muted); font-size: 0.95rem;">Get matched with drivers in under 2 minutes. Tap below to track your ride history or verify your transactions.</p>
+                <a href="login.html" class="btn-secondary" style="align-self: center; padding: 0.6rem 1.5rem; font-size: 0.95rem;">Access Dashboard</a>
+            </div>
+        </section>
+
+        <!-- Offers Section -->
+        <section style="margin-top: 5rem;">
+            <h2 class="panel-title"><i class="fa-solid fa-percent"></i> Hot Rides Promo Offers</h2>
+            <div class="offers-grid">
+                <div class="glass-panel offer-card">
+                    <h4>First Ride Discount</h4>
+                    <p style="color: var(--text-muted); margin-top: 0.5rem;">Get flat 50% off on your very first ride booked via the platform.</p>
+                    <span class="promo-code">WELCOME50</span>
+                </div>
+                <div class="glass-panel offer-card" style="border-left-color: var(--secondary);">
+                    <h4>Weekend Gateway</h4>
+                    <p style="color: var(--text-muted); margin-top: 0.5rem;">Save up to ₹150 on long distance weekend rides outside the city limits.</p>
+                    <span class="promo-code" style="color: var(--secondary); border-color: var(--secondary); background: rgba(56, 189, 248, 0.1);">WEEKENDOFF</span>
+                </div>
+                <div class="glass-panel offer-card" style="border-left-color: var(--success);">
+                    <h4>UPI Cashbacks</h4>
+                    <p style="color: var(--text-muted); margin-top: 0.5rem;">Make payments via UPI and receive instant 10% cashback in your wallet.</p>
+                    <span class="promo-code" style="color: var(--success); border-color: var(--success); background: rgba(16, 185, 129, 0.1);">UPISAVE</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Popular Destinations -->
+        <section style="margin-top: 5rem; margin-bottom: 5rem;">
+            <h2 class="panel-title"><i class="fa-solid fa-star"></i> Popular Destinations</h2>
+            <div class="grid-3">
+                <div class="glass-panel card">
+                    <div class="card-icon"><i class="fa-solid fa-building-columns"></i></div>
+                    <h3>Gachibowli Tech Hub</h3>
+                    <p>Travel to Hyderabad's premiere IT district. Safe and reliable drop-offs directly to major business complexes.</p>
+                </div>
+                <div class="glass-panel card">
+                    <div class="card-icon"><i class="fa-solid fa-plane"></i></div>
+                    <h3>RGIA Airport Express</h3>
+                    <p>Timely airport pickups and drop-offs. Pre-schedule your rides to catch flight bookings without stress.</p>
+                </div>
+                <div class="glass-panel card">
+                    <div class="card-icon"><i class="fa-solid fa-bag-shopping"></i></div>
+                    <h3>Inorbit Mall Shopping</h3>
+                    <p>Affordable city runs for weekend shopping sprees. Fit all your shopping bags into our SUV and Luxury cabs.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 CabGo Taxi Hailing Services. Developed following Django & Fetch API reference patterns. <a href="admin_dashboard.html">Admin Console</a></p>
+    </footer>
+
+    <!-- CSS Float Animation -->
+    <style>
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(-3deg); }
+        }
+    </style>
+
+    <script src="script.js"></script>
+</body>
+</html>

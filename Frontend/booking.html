@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CabGo - Book a Ride</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="glass-panel"></header>
+
+    <div id="loadingIndicator">
+        <div class="spinner"></div>
+        <p style="font-weight: 600; color: var(--primary);">Booking your ride...</p>
+    </div>
+
+    <main class="container">
+        <div class="layout-split">
+            <!-- Left Side: Booking Form -->
+            <div class="glass-panel" style="padding: 2.5rem;">
+                <h2 class="panel-title"><i class="fa-solid fa-location-dot"></i> Request a Taxi Booking</h2>
+                
+                <form id="bookingForm">
+                    <div class="form-group">
+                        <label class="form-label" for="pickup">Pickup Location</label>
+                        <input type="text" id="pickup" class="form-input" placeholder="e.g. Madhapur" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="drop">Drop Location</label>
+                        <input type="text" id="drop" class="form-input" placeholder="e.g. Gachibowli" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="vehicleType">Choose Vehicle Type</label>
+                        <select id="vehicleType" class="form-select" required>
+                            <option value="" disabled selected>Select category...</option>
+                            <option value="Bike">Bike (Single passenger - Fast)</option>
+                            <option value="Auto">Auto (Three seater - Budget)</option>
+                            <option value="Hatchback">Hatchback (Four seater - Standard)</option>
+                            <option value="Sedan">Sedan (Comfort ride - Business)</option>
+                            <option value="SUV">SUV (Six seater - Family)</option>
+                            <option value="Luxury">Luxury (Premium segment)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="bookingDate">Journey Date</label>
+                        <input type="date" id="bookingDate" class="form-input" required>
+                    </div>
+
+                    <!-- Dynamic estimate box -->
+                    <div id="fareEstimateBox" class="fare-estimate-box" style="display: none;">
+                        <h4>Ride Quote Summary</h4>
+                        <div class="fare-row" style="margin-top:0.75rem;">
+                            <span>Estimated Distance:</span>
+                            <span id="estDistance" style="font-weight: 600;">--</span>
+                        </div>
+                        <div class="fare-row">
+                            <span>Base Rate Class:</span>
+                            <span style="font-weight: 600; color: var(--secondary);">Dynamic Rate</span>
+                        </div>
+                        <div class="fare-row fare-total">
+                            <span>Estimated Fare:</span>
+                            <span id="estFare">--</span>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-primary form-submit-btn"><i class="fa-solid fa-taxi"></i> Confirm Booking</button>
+                </form>
+            </div>
+
+            <!-- Right Side: Guidelines & Dest Image Info -->
+            <div class="glass-panel" style="padding: 2.5rem; display: flex; flex-direction: column; gap: 2rem;">
+                <h2 class="panel-title"><i class="fa-solid fa-circle-info"></i> Booking Guidelines</h2>
+                
+                <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                    <i class="fa-solid fa-wallet" style="color: var(--primary); font-size: 1.5rem; margin-top: 0.2rem;"></i>
+                    <div>
+                        <h4>Pre-Auth Fare Estimates</h4>
+                        <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 0.25rem;">Estimates are computed automatically based on the distance between points and the selected vehicle tier.</p>
+                    </div>
+                </div>
+
+                <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                    <i class="fa-solid fa-shield-halved" style="color: var(--success); font-size: 1.5rem; margin-top: 0.2rem;"></i>
+                    <div>
+                        <h4>Safe Journeys</h4>
+                        <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 0.25rem;">All our partner drivers are verified, background checked, and operate with standard taxi permits.</p>
+                    </div>
+                </div>
+
+                <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                    <i class="fa-solid fa-clock-rotate-left" style="color: var(--secondary); font-size: 1.5rem; margin-top: 0.2rem;"></i>
+                    <div>
+                        <h4>Free Cancellation</h4>
+                        <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 0.25rem;">Cancel within 5 minutes of booking confirmation with zero penalty charge applied.</p>
+                    </div>
+                </div>
+
+                <div style="margin-top: auto; padding: 1.5rem; border-radius: 12px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--panel-border); text-align: center;">
+                    <i class="fa-solid fa-circle-question" style="font-size: 2rem; color: var(--primary); margin-bottom: 0.5rem;"></i>
+                    <p style="font-size: 0.95rem;">Need support with an active ride? Access your customer dashboard to reach local support teams.</p>
+                    <a href="customer_dashboard.html" class="btn-secondary" style="margin-top: 1rem; padding: 0.5rem 1.25rem; font-size: 0.9rem;">My Dashboard</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 CabGo. Developed following Django & Fetch API reference patterns.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

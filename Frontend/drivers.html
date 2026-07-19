@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CabGo - Drivers and Vehicles</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="glass-panel"></header>
+
+    <div id="loadingIndicator">
+        <div class="spinner"></div>
+        <p style="font-weight: 600; color: var(--primary);">Fetching operator listings...</p>
+    </div>
+
+    <main class="container">
+        <div class="list-header">
+            <div>
+                <h1 style="font-weight: 800; font-size: 2.2rem;">Our Drivers & Fleets</h1>
+                <p style="color: var(--text-muted); margin-top: 0.25rem;">Meet our verified professional operators and clean vehicles</p>
+            </div>
+        </div>
+
+        <div id="driversList" class="grid-3" style="margin-top: 2rem;">
+            <!-- Operator cards injected dynamically by script.js -->
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 CabGo. Developed following Django & Fetch API reference patterns.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

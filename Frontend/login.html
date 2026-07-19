@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CabGo - Login</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="glass-panel"></header>
+
+    <div id="loadingIndicator">
+        <div class="spinner"></div>
+        <p style="font-weight: 600; color: var(--primary);">Logging in...</p>
+    </div>
+
+    <main class="container">
+        <div class="glass-panel form-container">
+            <h2 class="form-title">Welcome Back</h2>
+            <p class="form-subtitle">Choose your profile role to sign in</p>
+
+            <div class="role-toggles">
+                <button type="button" class="role-btn active" data-role="customer"><i class="fa-solid fa-user-tie"></i> Customer</button>
+                <button type="button" class="role-btn" data-role="driver"><i class="fa-solid fa-taxi"></i> Driver</button>
+                <button type="button" class="role-btn" data-role="admin"><i class="fa-solid fa-user-shield"></i> Admin</button>
+            </div>
+
+            <form id="loginForm">
+                <div class="form-group">
+                    <label id="usernameLabel" class="form-label" for="loginEmail">Customer Email</label>
+                    <input type="text" id="loginEmail" class="form-input" placeholder="Enter customer email" required autocomplete="email">
+                </div>
+
+                <div class="form-group">
+                    <label id="passwordLabel" class="form-label" for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" class="form-input" placeholder="Enter your password" required autocomplete="current-password">
+                </div>
+
+                <button type="submit" class="btn-primary form-submit-btn"><i class="fa-solid fa-right-to-bracket"></i> Sign In</button>
+            </form>
+
+            <p class="form-footer">
+                New customer? <a href="register.html">Create your account</a>
+            </p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 CabGo. Developed following Django & Fetch API reference patterns.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -2,7 +2,7 @@
 const BASE_URL = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1" 
     ? "http://127.0.0.1:8000" 
     : (window.location.hostname.includes("vercel.app")
-        ? (localStorage.getItem("BACKEND_URL") || "https://taxibooking-backend.onrender.com")
+        ? (localStorage.getItem("BACKEND_URL") || "https://taxi-booking-website-f5jn.onrender.com")
         : ""); // Relative path when served directly from Django (Render/Heroku collectstatic)
 
 // Toast Notifications System

@@ -98,16 +98,19 @@ function clearUser() {
 // Route Guard to redirect users based on auth status
 function checkAuth() {
     const path = window.location.pathname;
-    const page = path.substring(path.lastIndexOf('/') + 1) || "index.html";
+    let page = path.substring(path.lastIndexOf('/') + 1) || "index.html";
+    if (page.endsWith(".html")) {
+        page = page.substring(0, page.length - 5);
+    }
     const user = getCurrentUser();
 
     const protectedPages = [
-        "booking.html",
-        "payments.html",
-        "ride_history.html",
-        "customer_dashboard.html",
-        "driver_dashboard.html",
-        "admin_dashboard.html"
+        "booking",
+        "payments",
+        "ride_history",
+        "customer_dashboard",
+        "driver_dashboard",
+        "admin_dashboard"
     ];
 
     if (protectedPages.includes(page)) {
@@ -117,18 +120,18 @@ function checkAuth() {
         }
 
         // Role-based page access checks
-        if (page === "customer_dashboard.html" && user.role !== "customer") {
+        if (page === "customer_dashboard" && user.role !== "customer") {
             window.location.href = `${user.role}_dashboard.html`;
         }
-        if (page === "driver_dashboard.html" && user.role !== "driver") {
+        if (page === "driver_dashboard" && user.role !== "driver") {
             window.location.href = `${user.role}_dashboard.html`;
         }
-        if (page === "admin_dashboard.html" && user.role !== "admin") {
+        if (page === "admin_dashboard" && user.role !== "admin") {
             window.location.href = `${user.role}_dashboard.html`;
         }
     }
 
-    if ((page === "login.html" || page === "register.html") && user) {
+    if ((page === "login" || page === "register") && user) {
         window.location.href = `${user.role}_dashboard.html`;
     }
 }
@@ -139,34 +142,37 @@ function renderNavbar() {
     if (!header) return;
 
     const path = window.location.pathname;
-    const currentPage = path.substring(path.lastIndexOf('/') + 1) || "index.html";
+    let currentPage = path.substring(path.lastIndexOf('/') + 1) || "index.html";
+    if (currentPage.endsWith(".html")) {
+        currentPage = currentPage.substring(0, currentPage.length - 5);
+    }
     const user = getCurrentUser();
 
     let navItems = `
-        <li><a href="index.html" class="nav-link ${currentPage === "index.html" ? "active" : ""}">Home</a></li>
-        <li><a href="drivers.html" class="nav-link ${currentPage === "drivers.html" ? "active" : ""}">Drivers</a></li>
+        <li><a href="index.html" class="nav-link ${currentPage === "index" ? "active" : ""}">Home</a></li>
+        <li><a href="drivers.html" class="nav-link ${currentPage === "drivers" ? "active" : ""}">Drivers</a></li>
     `;
 
     if (!user) {
         navItems += `
-            <li><a href="login.html" class="nav-link ${currentPage === "login.html" ? "active" : ""}">Login</a></li>
-            <li><a href="register.html" class="nav-link ${currentPage === "register.html" ? "active" : ""}">Register</a></li>
+            <li><a href="login.html" class="nav-link ${currentPage === "login" ? "active" : ""}">Login</a></li>
+            <li><a href="register.html" class="nav-link ${currentPage === "register" ? "active" : ""}">Register</a></li>
         `;
     } else {
         if (user.role === "customer") {
             navItems += `
-                <li><a href="customer_dashboard.html" class="nav-link ${currentPage === "customer_dashboard.html" ? "active" : ""}">Dashboard</a></li>
-                <li><a href="booking.html" class="nav-link ${currentPage === "booking.html" ? "active" : ""}">Book Ride</a></li>
-                <li><a href="ride_history.html" class="nav-link ${currentPage === "ride_history.html" ? "active" : ""}">My History</a></li>
+                <li><a href="customer_dashboard.html" class="nav-link ${currentPage === "customer_dashboard" ? "active" : ""}">Dashboard</a></li>
+                <li><a href="booking.html" class="nav-link ${currentPage === "booking" ? "active" : ""}">Book Ride</a></li>
+                <li><a href="ride_history.html" class="nav-link ${currentPage === "ride_history" ? "active" : ""}">My History</a></li>
             `;
         } else if (user.role === "driver") {
             navItems += `
-                <li><a href="driver_dashboard.html" class="nav-link ${currentPage === "driver_dashboard.html" ? "active" : ""}">Driver Panel</a></li>
-                <li><a href="ride_history.html" class="nav-link ${currentPage === "ride_history.html" ? "active" : ""}">Trips History</a></li>
+                <li><a href="driver_dashboard.html" class="nav-link ${currentPage === "driver_dashboard" ? "active" : ""}">Driver Panel</a></li>
+                <li><a href="ride_history.html" class="nav-link ${currentPage === "ride_history" ? "active" : ""}">Trips History</a></li>
             `;
         } else if (user.role === "admin") {
             navItems += `
-                <li><a href="admin_dashboard.html" class="nav-link ${currentPage === "admin_dashboard.html" ? "active" : ""}">Admin Console</a></li>
+                <li><a href="admin_dashboard.html" class="nav-link ${currentPage === "admin_dashboard" ? "active" : ""}">Admin Console</a></li>
             `;
         }
     }
@@ -204,25 +210,28 @@ document.addEventListener("DOMContentLoaded", () => {
     renderNavbar();
 
     const path = window.location.pathname;
-    const page = path.substring(path.lastIndexOf('/') + 1) || "index.html";
+    let page = path.substring(path.lastIndexOf('/') + 1) || "index.html";
+    if (page.endsWith(".html")) {
+        page = page.substring(0, page.length - 5);
+    }
 
-    if (page === "login.html") {
+    if (page === "login") {
         initLoginPage();
-    } else if (page === "register.html") {
+    } else if (page === "register") {
         initRegisterPage();
-    } else if (page === "booking.html") {
+    } else if (page === "booking") {
         initBookingPage();
-    } else if (page === "drivers.html") {
+    } else if (page === "drivers") {
         initDriversPage();
-    } else if (page === "payments.html") {
+    } else if (page === "payments") {
         initPaymentsPage();
-    } else if (page === "ride_history.html") {
+    } else if (page === "ride_history") {
         initRideHistoryPage();
-    } else if (page === "customer_dashboard.html") {
+    } else if (page === "customer_dashboard") {
         initCustomerDashboard();
-    } else if (page === "driver_dashboard.html") {
+    } else if (page === "driver_dashboard") {
         initDriverDashboard();
-    } else if (page === "admin_dashboard.html") {
+    } else if (page === "admin_dashboard") {
         initAdminDashboard();
     }
 });
